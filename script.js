@@ -1,45 +1,69 @@
-// Toggle class active
+// =====================
+// NAVBAR TOGGLE
+// =====================
 const navbarNav = document.querySelector(".navbar-nav");
-document.querySelector("#menu").onclick = () => {
-  navbarNav.classList.toggle("active");
-};
+const menuBtn = document.querySelector("#menu");
 
-// Toggle class active untuk search form
+if (menuBtn && navbarNav) {
+  menuBtn.onclick = () => {
+    navbarNav.classList.toggle("active");
+  };
+}
+
+// =====================
+// SEARCH FORM TOGGLE
+// =====================
 const searchForm = document.querySelector(".search-form");
 const searchBox = document.querySelector("#search-box");
+const searchBtn = document.querySelector("#search-button");
 
-document.querySelector("#search-button").onclick = (e) => {
-  searchForm.classList.toggle("active");
-  searchBox.focus();
-  e.preventDefault();
-};
+if (searchBtn && searchForm) {
+  searchBtn.onclick = (e) => {
+    e.preventDefault();
+    searchForm.classList.toggle("active");
+    if (searchBox) searchBox.focus();
+  };
+}
 
-// Klik di luar elemen
-const hm = document.querySelector("#menu");
-const sb = document.querySelector("#search-button");
-
+// =====================
+// CLICK OUTSIDE HANDLER
+// =====================
 document.addEventListener("click", function (e) {
-  if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove("active");
+
+  // Tutup navbar
+  if (menuBtn && navbarNav) {
+    if (!menuBtn.contains(e.target) && !navbarNav.contains(e.target)) {
+      navbarNav.classList.remove("active");
+    }
   }
 
-  if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
-    searchForm.classList.remove("active");
+  // Tutup search form
+  if (searchBtn && searchForm) {
+    if (!searchBtn.contains(e.target) && !searchForm.contains(e.target)) {
+      searchForm.classList.remove("active");
+    }
   }
 });
 
-// Highlight active nav link based on current page
+// =====================
+// ACTIVE NAV LINK
+// =====================
 function highlightActiveNav() {
-  const links = document.querySelectorAll('.navbar .navbar-nav a');
-  const path = window.location.pathname.split('/').pop();
+  const links = document.querySelectorAll(".navbar .navbar-nav a");
+  const currentPage = window.location.pathname.split("/").pop();
+
   links.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === path || (href === 'index.html' && path === '')) {
-      link.classList.add('active');
+    const href = link.getAttribute("href");
+
+    if (
+      href === currentPage ||
+      (href === "index.html" && currentPage === "")
+    ) {
+      link.classList.add("active");
     } else {
-      link.classList.remove('active');
+      link.classList.remove("active");
     }
   });
 }
 
-document.addEventListener('DOMContentLoaded', highlightActiveNav);
+document.addEventListener("DOMContentLoaded", highlightActiveNav);
