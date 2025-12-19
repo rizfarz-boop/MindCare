@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Artikel - MindCare</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html">MindCare</a>
+</nav>
+
+<section class="article">
+  <div class="container">
+    <h1>Artikel Kesehatan Mental</h1>
+
+    <div class="row">
+
+      <div class="article-card">
+        <img src="img/artikel1.jpg">
+        <div class="article-content">
+          <h3>Mengenali Tanda Awal Burnout</h3>
+          <p>Tanda-tanda kelelahan mental.</p>
+          <a href="artikel-burnout.html" class="btn-article">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="img/artikel2.jpg">
+        <div class="article-content">
+          <h3>Mengatasi Overthinking</h3>
+          <p>Cara sederhana mengurangi pikiran berlebih.</p>
+          <a href="artikel-overthinking.html" class="btn-article">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="img/artikel3.jpg">
+        <div class="article-content">
+          <h3>Pentingnya Self-Care</h3>
+          <p>Menjaga kesehatan mental.</p>
+          <a href="artikel-selfcare.html" class="btn-article">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 MindCare</footer>
+
+</body>
+</html>
+.article {
+  position: relative;
+}
+
+.article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.article .container {
+  position: relative;
+  z-index: 1;
+}
